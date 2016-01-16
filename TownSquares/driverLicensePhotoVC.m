@@ -1,18 +1,18 @@
 //
-//  driverSignInVC.m
+//  driverLicensePhotoVC.m
 //  TownSquares
 //
 //  Created by Aaron Crawfis on 1/16/16.
 //  Copyright © 2016 Aaron Crawfis. All rights reserved.
 //
 
-#import "driverSignInVC.h"
+#import "driverLicensePhotoVC.h"
 
-@interface driverSignInVC ()
+@interface driverLicensePhotoVC ()
 
 @end
 
-@implementation driverSignInVC
+@implementation driverLicensePhotoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +34,7 @@
 }
 */
 
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
+- (IBAction)takePictureButtonPressed:(UIButton *)sender {
 }
 
 - (IBAction)nextButtonPressed:(UIButton *)sender {

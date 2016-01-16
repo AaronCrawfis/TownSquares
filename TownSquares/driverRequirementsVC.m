@@ -1,18 +1,18 @@
 //
-//  driverSignInVC.m
+//  driverRequirementsVC.m
 //  TownSquares
 //
 //  Created by Aaron Crawfis on 1/16/16.
 //  Copyright © 2016 Aaron Crawfis. All rights reserved.
 //
 
-#import "driverSignInVC.h"
+#import "driverRequirementsVC.h"
 
-@interface driverSignInVC ()
+@interface driverRequirementsVC ()
 
 @end
 
-@implementation driverSignInVC
+@implementation driverRequirementsVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,9 +34,9 @@
 }
 */
 
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
+- (IBAction)yesButtonPressed:(UIButton *)sender {
 }
 
-- (IBAction)nextButtonPressed:(UIButton *)sender {
+- (IBAction)noButtonPressed:(UIButton *)sender {
 }
 @end

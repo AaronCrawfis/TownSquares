@@ -1,5 +1,5 @@
 //
-//  driverMainVC.h
+//  shopperInfoVC.h
 //  TownSquares
 //
 //  Created by Aaron Crawfis on 1/16/16.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface driverMainVC : UIViewController
-
-// Button
-- (IBAction)signInButtonPressed:(UIButton *)sender;
+@interface shopperInfoVC : UIViewController
 
 @end

@@ -1,18 +1,18 @@
 //
-//  driverSignInVC.m
+//  driverBGCheckVC.m
 //  TownSquares
 //
 //  Created by Aaron Crawfis on 1/16/16.
 //  Copyright © 2016 Aaron Crawfis. All rights reserved.
 //
 
-#import "driverSignInVC.h"
+#import "driverBGCheckVC.h"
 
-@interface driverSignInVC ()
+@interface driverBGCheckVC ()
 
 @end
 
-@implementation driverSignInVC
+@implementation driverBGCheckVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,9 +34,9 @@
 }
 */
 
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
+- (IBAction)agreeButtonPressed:(UIButton *)sender {
 }
 
-- (IBAction)nextButtonPressed:(UIButton *)sender {
+- (IBAction)disagreeButtonPressed:(UIButton *)sender {
 }
 @end

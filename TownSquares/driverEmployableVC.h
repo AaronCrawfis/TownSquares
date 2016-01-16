@@ -1,5 +1,5 @@
 //
-//  driverMainVC.h
+//  driverEmployableVC.h
 //  TownSquares
 //
 //  Created by Aaron Crawfis on 1/16/16.
@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverCarInfoVC.h"
 
-@interface driverMainVC : UIViewController
+@interface driverEmployableVC : UIViewController
 
-// Button
-- (IBAction)signInButtonPressed:(UIButton *)sender;
 
 @end
