@@ -15,6 +15,7 @@
 @property int year;
 @property NSString *color;
 
+@property NSString *vin;
 @property NSString *license;
 @property NSString *notes;
 

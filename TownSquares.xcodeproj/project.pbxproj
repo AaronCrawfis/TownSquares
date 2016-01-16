@@ -22,6 +22,13 @@
 		93783CFD1C4AEBF2006D1201 /* businessClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783CFC1C4AEBF2006D1201 /* businessClass.m */; };
 		93783D001C4AED9D006D1201 /* hoursObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783CFF1C4AED9D006D1201 /* hoursObject.m */; };
 		93783D031C4AEE33006D1201 /* ownerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D021C4AEE33006D1201 /* ownerObject.m */; };
+		93783D071C4AF15C006D1201 /* landingPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D061C4AF15C006D1201 /* landingPageVC.m */; };
+		93783D0A1C4AF187006D1201 /* shopperMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D091C4AF187006D1201 /* shopperMainVC.m */; };
+		93783D101C4AF1B3006D1201 /* driverMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D0F1C4AF1B3006D1201 /* driverMainVC.m */; };
+		93783D131C4AF1BD006D1201 /* businessMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D121C4AF1BD006D1201 /* businessMainVC.m */; };
+		93783D161C4AF22D006D1201 /* driverSignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D151C4AF22D006D1201 /* driverSignInVC.m */; };
+		93783D191C4AF23A006D1201 /* businessSignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D181C4AF23A006D1201 /* businessSignInVC.m */; };
+		93783D1C1C4AF244006D1201 /* shopperSignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93783D1B1C4AF244006D1201 /* shopperSignInVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +79,20 @@
 		93783CFF1C4AED9D006D1201 /* hoursObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hoursObject.m; sourceTree = "<group>"; };
 		93783D011C4AEE33006D1201 /* ownerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownerObject.h; sourceTree = "<group>"; };
 		93783D021C4AEE33006D1201 /* ownerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownerObject.m; sourceTree = "<group>"; };
+		93783D051C4AF15C006D1201 /* landingPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = landingPageVC.h; sourceTree = "<group>"; };
+		93783D061C4AF15C006D1201 /* landingPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = landingPageVC.m; sourceTree = "<group>"; };
+		93783D081C4AF187006D1201 /* shopperMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopperMainVC.h; sourceTree = "<group>"; };
+		93783D091C4AF187006D1201 /* shopperMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperMainVC.m; sourceTree = "<group>"; };
+		93783D0E1C4AF1B3006D1201 /* driverMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = driverMainVC.h; sourceTree = "<group>"; };
+		93783D0F1C4AF1B3006D1201 /* driverMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = driverMainVC.m; sourceTree = "<group>"; };
+		93783D111C4AF1BD006D1201 /* businessMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = businessMainVC.h; sourceTree = "<group>"; };
+		93783D121C4AF1BD006D1201 /* businessMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = businessMainVC.m; sourceTree = "<group>"; };
+		93783D141C4AF22D006D1201 /* driverSignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = driverSignInVC.h; sourceTree = "<group>"; };
+		93783D151C4AF22D006D1201 /* driverSignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = driverSignInVC.m; sourceTree = "<group>"; };
+		93783D171C4AF23A006D1201 /* businessSignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = businessSignInVC.h; sourceTree = "<group>"; };
+		93783D181C4AF23A006D1201 /* businessSignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = businessSignInVC.m; sourceTree = "<group>"; };
+		93783D1A1C4AF244006D1201 /* shopperSignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopperSignInVC.h; sourceTree = "<group>"; };
+		93783D1B1C4AF244006D1201 /* shopperSignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperSignInVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +208,46 @@
 		93783D041C4AF0A8006D1201 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				93783D051C4AF15C006D1201 /* landingPageVC.h */,
+				93783D061C4AF15C006D1201 /* landingPageVC.m */,
+				93783D0D1C4AF1A1006D1201 /* Driver */,
+				93783D0C1C4AF197006D1201 /* Business */,
+				93783D0B1C4AF18B006D1201 /* Shopper */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93783D0B1C4AF18B006D1201 /* Shopper */ = {
+			isa = PBXGroup;
+			children = (
+				93783D081C4AF187006D1201 /* shopperMainVC.h */,
+				93783D091C4AF187006D1201 /* shopperMainVC.m */,
+				93783D1A1C4AF244006D1201 /* shopperSignInVC.h */,
+				93783D1B1C4AF244006D1201 /* shopperSignInVC.m */,
+			);
+			name = Shopper;
+			sourceTree = "<group>";
+		};
+		93783D0C1C4AF197006D1201 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				93783D111C4AF1BD006D1201 /* businessMainVC.h */,
+				93783D121C4AF1BD006D1201 /* businessMainVC.m */,
+				93783D171C4AF23A006D1201 /* businessSignInVC.h */,
+				93783D181C4AF23A006D1201 /* businessSignInVC.m */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		93783D0D1C4AF1A1006D1201 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				93783D0E1C4AF1B3006D1201 /* driverMainVC.h */,
+				93783D0F1C4AF1B3006D1201 /* driverMainVC.m */,
+				93783D141C4AF22D006D1201 /* driverSignInVC.h */,
+				93783D151C4AF22D006D1201 /* driverSignInVC.m */,
+			);
+			name = Driver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,15 +383,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93783D101C4AF1B3006D1201 /* driverMainVC.m in Sources */,
 				93783CFA1C4AEB2C006D1201 /* productObject.m in Sources */,
 				93783CEB1C4AEA1A006D1201 /* shopperObject.m in Sources */,
+				93783D131C4AF1BD006D1201 /* businessMainVC.m in Sources */,
+				93783D1C1C4AF244006D1201 /* shopperSignInVC.m in Sources */,
 				93783CE81C4AE917006D1201 /* driverObject.m in Sources */,
 				93783CF41C4AEAB0006D1201 /* routeObject.m in Sources */,
+				93783D161C4AF22D006D1201 /* driverSignInVC.m in Sources */,
 				93783D031C4AEE33006D1201 /* ownerObject.m in Sources */,
+				93783D0A1C4AF187006D1201 /* shopperMainVC.m in Sources */,
 				93783CFD1C4AEBF2006D1201 /* businessClass.m in Sources */,
+				93783D191C4AF23A006D1201 /* businessSignInVC.m in Sources */,
 				93783CF71C4AEADA006D1201 /* purchaseObject.m in Sources */,
 				93783CB11C4AE7DE006D1201 /* main.m in Sources */,
 				93783D001C4AED9D006D1201 /* hoursObject.m in Sources */,
+				93783D071C4AF15C006D1201 /* landingPageVC.m in Sources */,
 				93783CF11C4AEAA7006D1201 /* carObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
