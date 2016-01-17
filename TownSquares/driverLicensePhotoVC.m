@@ -7,6 +7,7 @@
 //
 
 #import "driverLicensePhotoVC.h"
+#import "driverCarInfoVC.h"
 
 @interface driverLicensePhotoVC ()
 
@@ -24,19 +25,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)takePictureButtonPressed:(UIButton *)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"passDriverToCI"]){
+        driverCarInfoVC *controller = (driverCarInfoVC *)segue.destinationViewController;
+        controller.createdDriver = self.createdDriver;
+    }
 }
 
-- (IBAction)nextButtonPressed:(UIButton *)sender {
+- (IBAction)takePictureButtonPressed:(UIButton *)sender
+{
+    // Open Camera
+}
+
+- (IBAction)nextButtonPressed:(UIButton *)sender
+{
+    // Save data into driver
+    
+    // Navigation
+    [self performSegueWithIdentifier:@"passDriverToCI" sender:self];
 }
 @end

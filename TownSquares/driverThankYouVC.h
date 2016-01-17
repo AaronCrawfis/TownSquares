@@ -10,4 +10,7 @@
 
 @interface driverThankYouVC : UIViewController
 
+// Buttons
+- (IBAction)doneButtonPressed:(UIButton *)sender;
+
 @end

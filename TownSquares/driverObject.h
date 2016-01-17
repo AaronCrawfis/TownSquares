@@ -14,6 +14,10 @@
 // Basic Information
 @property NSString *firstName;
 @property NSString *lastName;
+@property NSString *password;
+@property NSString *ssn;
+@property NSData *IDPicture;
+@property bool isEmployable;
 
 // Address
 @property NSString *street;

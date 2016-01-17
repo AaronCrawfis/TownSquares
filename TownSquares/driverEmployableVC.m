@@ -34,4 +34,19 @@
 }
 */
 
+- (IBAction)yesButtonPressed:(UIButton *)sender
+{
+    self.createdDriver.isEmployable = false;
+    
+    // Send Data to Server
+    
+    
+    // Perform Segue
+    [self performSegueWithIdentifier:@"passDriverToTY" sender:self];
+}
+
+- (IBAction)noButtonPressed:(UIButton *)sender
+{
+    
+}
 @end

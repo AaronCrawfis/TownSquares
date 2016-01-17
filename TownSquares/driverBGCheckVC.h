@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "driverRequirementsVC.h"
+#import "driverObject.h"
 
 @interface driverBGCheckVC : UIViewController
 
 // Properties
-
+@property (strong, nonatomic) driverObject *createdDriver;
 
 // Text Fields
 @property (strong, nonatomic) IBOutlet UITextField *firstSSTextField;

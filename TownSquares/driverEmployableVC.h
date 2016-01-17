@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "driverCarInfoVC.h"
+#import "driverObject.h"
 
 @interface driverEmployableVC : UIViewController
 
+// Properties
+@property (strong, nonatomic) driverObject *createdDriver;
+
+// Buttons
+- (IBAction)yesButtonPressed:(UIButton *)sender;
+- (IBAction)noButtonPressed:(UIButton *)sender;
 
 @end

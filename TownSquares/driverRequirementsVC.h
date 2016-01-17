@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "driverSignInVC.h"
+#import "driverObject.h"
 
 @interface driverRequirementsVC : UIViewController
 
 // Properties
+@property (strong, nonatomic) driverObject *createdDriver;
 
 // Buttons
 - (IBAction)yesButtonPressed:(UIButton *)sender;

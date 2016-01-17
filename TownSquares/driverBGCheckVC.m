@@ -7,6 +7,8 @@
 //
 
 #import "driverBGCheckVC.h"
+#import "driverLicensePhotoVC.h"
+
 
 @interface driverBGCheckVC ()
 
@@ -24,19 +26,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)agreeButtonPressed:(UIButton *)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"passDriverToDL"]){
+        driverLicensePhotoVC *controller = (driverLicensePhotoVC *)segue.destinationViewController;
+        controller.createdDriver = self.createdDriver;
+    }
 }
 
-- (IBAction)disagreeButtonPressed:(UIButton *)sender {
+- (IBAction)agreeButtonPressed:(UIButton *)sender
+{
+    // Concatenate and save ssn
+    self.createdDriver.ssn = [NSString stringWithFormat:@"%@%@%@", self.firstSSTextField.text,self.secondSSTextField.text,self.thirdSSTextField.text];
+    
+    // !!!Navigation
+    [self performSegueWithIdentifier:@"passDriverToDL" sender:self];
+}
+
+- (IBAction)disagreeButtonPressed:(UIButton *)sender
+{
+    
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "driverSignInVC.h"
+#import "driverRequirementsVC.h"
 
 @interface driverSignInVC ()
 
@@ -14,9 +15,12 @@
 
 @implementation driverSignInVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Create new driver
+    self.createdDriver = [[driverObject alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,19 +28,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"passDriverToRequirements"]){
+        driverRequirementsVC *controller = (driverRequirementsVC *)segue.destinationViewController;
+        controller.createdDriver = self.createdDriver;
+    }
 }
 
-- (IBAction)nextButtonPressed:(UIButton *)sender {
+- (IBAction)cancelButtonPressed:(UIButton *)sender
+{
+    
+}
+
+- (IBAction)nextButtonPressed:(UIButton *)sender
+{
+    // Fill driver with information
+    self.createdDriver.firstName = self.firstNameTextField.text;
+    self.createdDriver.lastName = self.lastNameTextField.text;
+    self.createdDriver.email = self.emailTextField.text;
+    self.createdDriver.phone = self.phoneTextField.text;
+    self.createdDriver.city = self.cityTextField.text;
+    self.createdDriver.state = self.stateTextField.text;
+    self.createdDriver.zip = self.zipTextField.text;
+    self.createdDriver.password = self.passwordTextField.text;
+    
+    // Go to next view controller
+    [self performSegueWithIdentifier:@"passDriverToRequirements" sender:self];
 }
 @end

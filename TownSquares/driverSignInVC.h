@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #include "driverObject.h"
+#include "driverRequirementsVC.h"
 
 @interface driverSignInVC : UIViewController
 
 // Properties
+@property (strong, nonatomic) driverObject *createdDriver;
 
 // Text Fields
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;

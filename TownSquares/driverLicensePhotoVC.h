@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "driverBGCheckVC.h"
+#import "driverObject.h"
 
 @interface driverLicensePhotoVC : UIViewController
 
 // Properties
-
+@property (strong, nonatomic) driverObject *createdDriver;
+@property NSData *selectedPhoto;
 
 // Buttons
 - (IBAction)takePictureButtonPressed:(UIButton *)sender;

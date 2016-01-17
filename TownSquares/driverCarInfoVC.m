@@ -7,6 +7,8 @@
 //
 
 #import "driverCarInfoVC.h"
+#import "carObject.h"
+#import "driverEmployableVC.h"
 
 @interface driverCarInfoVC ()
 
@@ -14,9 +16,12 @@
 
 @implementation driverCarInfoVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Create car
+    self.createdDriver.car = [[carObject alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +29,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"passDriverToEM"]){
+        driverEmployableVC *controller = (driverEmployableVC *)segue.destinationViewController;
+        controller.createdDriver = self.createdDriver;
+    }
 }
-*/
 
+
+- (IBAction)backButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)nextButtonPressed:(UIButton *)sender
+{
+    // Assign car attributes
+    self.createdDriver.car.make = self.makeTextField.text;
+    self.createdDriver.car.model = self.modelTextField.text;
+    self.createdDriver.car.year = [self.yearTextField.text intValue];
+    self.createdDriver.car.color = self.colorTextField.text;
+    self.createdDriver.car.vin = self.vinTextField.text;
+    self.createdDriver.car.license = self.licensePlateTextField.text;
+    
+    // Navigation
+    [self performSegueWithIdentifier:@"passDriverToEM" sender:self];
+}
 @end
