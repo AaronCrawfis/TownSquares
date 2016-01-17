@@ -40,9 +40,6 @@
     
     // Send Data to Server
     
-    
-    // Perform Segue
-    [self performSegueWithIdentifier:@"passDriverToTY" sender:self];
 }
 
 - (IBAction)noButtonPressed:(UIButton *)sender

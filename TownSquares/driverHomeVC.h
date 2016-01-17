@@ -10,4 +10,8 @@
 
 @interface driverHomeVC : UIViewController
 
+// Buttons Pressed
+- (IBAction)runRouteButtonPressed:(UIButton *)sender;
+- (IBAction)manageAccountButtonPressed:(UIButton *)sender;
+
 @end

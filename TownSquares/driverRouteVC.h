@@ -10,4 +10,7 @@
 
 @interface driverRouteVC : UIViewController
 
+@property int minTime;
+@property int maxTime;
+
 @end

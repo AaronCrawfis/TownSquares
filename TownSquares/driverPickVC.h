@@ -10,4 +10,16 @@
 
 @interface driverPickVC : UIViewController
 
+// Variables
+@property int minTime;
+@property int maxTime;
+
+// Buttons
+- (IBAction)time0ButtonPressed:(UIButton *)sender;
+- (IBAction)time30ButtonPressed:(UIButton *)sender;
+- (IBAction)time60ButtonPressed:(UIButton *)sender;
+- (IBAction)time90ButtonPressed:(UIButton *)sender;
+- (IBAction)time2ButtonPressed:(UIButton *)sender;
+
+
 @end

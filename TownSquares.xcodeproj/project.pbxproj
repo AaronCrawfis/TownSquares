@@ -328,10 +328,10 @@
 			children = (
 				93783D311C4AFFA7006D1201 /* driverHomeVC.h */,
 				93783D321C4AFFA7006D1201 /* driverHomeVC.m */,
-				93783D341C4AFFBC006D1201 /* driverRouteVC.h */,
-				93783D351C4AFFBC006D1201 /* driverRouteVC.m */,
 				93783D371C4B0047006D1201 /* driverPickVC.h */,
 				93783D381C4B0047006D1201 /* driverPickVC.m */,
+				93783D341C4AFFBC006D1201 /* driverRouteVC.h */,
+				93783D351C4AFFBC006D1201 /* driverRouteVC.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
