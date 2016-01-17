@@ -545,7 +545,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="OAO-OP-9ZX" eventType="touchUpInside" id="vT7-3i-MJR"/>
-                                    <segue destination="FAG-hl-Yy7" kind="show" identifier="passDriverToRequirements" id="Ksy-cX-J3l"/>
+                                    <segue destination="FAG-hl-Yy7" kind="presentation" identifier="passDriverToRequirements" id="Ksy-cX-J3l"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="State" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZu-Ne-I8e">
@@ -602,7 +602,7 @@
                                 <state key="normal" title="Yes"/>
                                 <connections>
                                     <action selector="yesButtonPressed:" destination="FAG-hl-Yy7" eventType="touchUpInside" id="T3x-CT-CH0"/>
-                                    <segue destination="9Nr-kG-w6g" kind="show" identifier="passDriverToBG" id="kC6-3r-KqU"/>
+                                    <segue destination="9Nr-kG-w6g" kind="presentation" identifier="passDriverToBG" id="kC6-3r-KqU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -652,7 +652,7 @@
                                 <state key="normal" title="I agree"/>
                                 <connections>
                                     <action selector="agreeButtonPressed:" destination="9Nr-kG-w6g" eventType="touchUpInside" id="grz-TL-4Bx"/>
-                                    <segue destination="Wcf-hz-Fz6" kind="show" identifier="passDriverToDL" id="YU1-I4-N8d"/>
+                                    <segue destination="Wcf-hz-Fz6" kind="presentation" identifier="passDriverToDL" id="YU1-I4-N8d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZX-hx-yep">
@@ -706,7 +706,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="Wcf-hz-Fz6" eventType="touchUpInside" id="ahe-Q2-b7f"/>
-                                    <segue destination="Imn-VY-faX" kind="show" identifier="passDriverToCI" id="AZm-bc-Dj7"/>
+                                    <segue destination="Imn-VY-faX" kind="presentation" identifier="passDriverToCI" id="AZm-bc-Dj7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -771,7 +771,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="Imn-VY-faX" eventType="touchUpInside" id="hJ1-jw-kLv"/>
-                                    <segue destination="izq-UA-lOe" kind="show" identifier="passDriverToEM" id="oOG-cc-exX"/>
+                                    <segue destination="izq-UA-lOe" kind="presentation" identifier="passDriverToEM" id="oOG-cc-exX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZP-rI-QHe">
@@ -815,7 +815,6 @@
                                 <state key="normal" title="Yes"/>
                                 <connections>
                                     <action selector="yesButtonPressed:" destination="izq-UA-lOe" eventType="touchUpInside" id="i4f-np-Bsq"/>
-                                    <segue destination="qpM-qL-Q4N" kind="show" identifier="passDriverToTY" id="7DX-SF-yDE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8q-8h-cR4">
@@ -835,6 +834,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="qpM-qL-Q4N" kind="show" identifier="TYSegue" id="dkr-tW-IlY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oX-iL-hvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
