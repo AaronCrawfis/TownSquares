@@ -74,7 +74,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="UpK-ca-qoA" kind="show" id="wDA-Mc-C9R"/>
+                        <segue destination="UpK-ca-qoA" kind="show" identifier="purchasesSegue" id="wDA-Mc-C9R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8e-Hk-yg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -114,6 +114,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="f2s-dQ-B2b" kind="show" identifier="storeSegue" id="Vjm-qY-KzP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcP-gm-Ke1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,11 +141,6 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQe-xJ-B0D">
                                 <rect key="frame" x="180" y="82" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address Line 1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1H-vn-nB6">
-                                <rect key="frame" x="97" y="138" width="115" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -179,16 +177,43 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-S1-Hx4">
                                 <rect key="frame" x="46" y="586" width="115" height="30"/>
                                 <state key="normal" title="Use this address"/>
+                                <connections>
+                                    <action selector="useThisAddressButtonPressed:" destination="IMg-Lp-PcE" eventType="touchUpInside" id="Lgu-fR-5K2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLw-WD-jpB">
                                 <rect key="frame" x="203" y="586" width="121" height="30"/>
                                 <state key="normal" title="Save this address"/>
+                                <connections>
+                                    <action selector="saveThisAddressButtonPressed:" destination="IMg-Lp-PcE" eventType="touchUpInside" id="Tcl-1V-Q3M"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUy-kE-ddN">
+                                <rect key="frame" x="157" y="548" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="IMg-Lp-PcE" eventType="touchUpInside" id="3Jf-Ho-gx3"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address Line 1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1H-vn-nB6">
+                                <rect key="frame" x="97" y="138" width="115" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="address1TextField" destination="S1H-vn-nB6" id="9bs-0G-pEV"/>
+                        <outlet property="address2TextField" destination="xQV-hd-zpm" id="ZhF-TR-ize"/>
+                        <outlet property="cityTextField" destination="2wB-uf-qoy" id="kKj-9J-I3D"/>
+                        <outlet property="firstNameTextField" destination="67d-vX-JCi" id="aoT-0o-sne"/>
+                        <outlet property="lastNameTextField" destination="CQe-xJ-B0D" id="RGy-kd-Gaf"/>
+                        <outlet property="phoneTextField" destination="C3G-l5-JMX" id="DfN-Xr-tSA"/>
+                        <outlet property="securityCodeTextField" destination="iW9-bz-Jv6" id="yH4-pH-p5P"/>
+                        <outlet property="stateTextField" destination="tzX-e4-aZf" id="5fO-Ua-vey"/>
+                        <outlet property="zipTextField" destination="mE8-Yy-qQm" id="gH4-qe-Ydd"/>
                         <segue destination="nuw-Rd-2l9" kind="show" identifier="passShopperToInfo" id="4jV-y0-S8Z"/>
                     </connections>
                 </viewController>
@@ -209,49 +234,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-1k-rYM">
-                                <rect key="frame" x="70" y="105" width="97" height="30"/>
+                                <rect key="frame" x="159" y="67" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wbX-6i-Fdx">
-                                <rect key="frame" x="94" y="253" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Zk-xwZ">
-                                <rect key="frame" x="88" y="291" width="139" height="30"/>
+                                <rect key="frame" x="152" y="253" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vcX-0Y-MOS">
-                                <rect key="frame" x="55" y="143" width="172" height="29"/>
+                                <rect key="frame" x="121" y="112" width="172" height="29"/>
                                 <segments>
                                     <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Age" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHO-k7-TBd">
-                                <rect key="frame" x="258" y="143" width="97" height="30"/>
+                                <rect key="frame" x="159" y="157" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-xt-CgK">
-                                <rect key="frame" x="83" y="210" width="97" height="30"/>
+                                <rect key="frame" x="152" y="215" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05Q-bm-jaj">
                                 <rect key="frame" x="238" y="522" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInButtonPressed:" destination="nuw-Rd-2l9" eventType="touchUpInside" id="r3W-1y-N4N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bu-P2-Yya">
                                 <rect key="frame" x="55" y="514" width="107" height="30"/>
                                 <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="createAccountButtonPressed:" destination="nuw-Rd-2l9" eventType="touchUpInside" id="V1v-Ym-Wsz"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEh-bC-bLB">
+                                <rect key="frame" x="125" y="429" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="nuw-Rd-2l9" eventType="touchUpInside" id="Kfe-OZ-pvA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Zk-xwZ">
+                                <rect key="frame" x="138" y="297" width="139" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="hHO-k7-TBd" id="PUy-KI-POA"/>
+                        <outlet property="confirmPasswordTextField" destination="0ab-Zk-xwZ" id="Ztc-fb-tb4"/>
+                        <outlet property="emailTextField" destination="bVk-1k-rYM" id="FSh-jn-bSJ"/>
+                        <outlet property="genderSegmentedControl" destination="vcX-0Y-MOS" id="DvP-w7-1tt"/>
+                        <outlet property="passwordTextField" destination="wbX-6i-Fdx" id="ULs-SW-t9D"/>
+                        <outlet property="phoneTextField" destination="pSa-xt-CgK" id="ULn-au-akG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0IM-WO-S2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxE-Ch-m8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.5" y="-858.5"/>
+            <point key="canvasLocation" x="1653.5" y="-832.5"/>
         </scene>
         <!--Driver MainVC-->
         <scene sceneID="pDy-Xy-zB3">
@@ -323,7 +369,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="wrc-Zz-0XJ" kind="show" id="BPt-r9-ivc"/>
+                        <segue destination="wrc-Zz-0XJ" kind="show" identifier="routeSegue" id="BPt-r9-ivc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66w-g5-8mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,7 +441,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="o7d-Rj-a5r" kind="presentation" id="a8v-0b-Ght"/>
+                        <segue destination="o7d-Rj-a5r" kind="presentation" identifier="productSegue" id="a8v-0b-Ght"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWi-94-oVo" userLabel="First Responder" sceneMemberID="firstResponder"/>

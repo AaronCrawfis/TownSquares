@@ -35,6 +35,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-//[self performSegueWithIdentifier:@"passShopperToInfo" sender:self];
+- (IBAction)useThisAddressButtonPressed:(UIButton *)sender {
+}
 
+- (IBAction)saveThisAddressButtonPressed:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"passShopperToInfo" sender:self];
+}
+
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 @end
