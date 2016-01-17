@@ -45,6 +45,6 @@
 
 - (IBAction)disagreeButtonPressed:(UIButton *)sender
 {
-    
+    [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

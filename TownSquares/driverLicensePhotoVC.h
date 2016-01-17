@@ -18,5 +18,6 @@
 // Buttons
 - (IBAction)takePictureButtonPressed:(UIButton *)sender;
 - (IBAction)nextButtonPressed:(UIButton *)sender;
+- (IBAction)backButtonPressed:(UIButton *)sender;
 
 @end

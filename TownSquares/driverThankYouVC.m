@@ -27,6 +27,7 @@
 
 - (IBAction)doneButtonPressed:(UIButton *)sender
 {
+    // Dismiss all the view controllers
     [self.presentingViewController.presentingViewController.presentingViewController.presentingViewController.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

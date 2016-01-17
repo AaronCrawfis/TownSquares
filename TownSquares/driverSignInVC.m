@@ -38,7 +38,7 @@
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender
 {
-    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)nextButtonPressed:(UIButton *)sender

@@ -40,6 +40,6 @@
 
 - (IBAction)noButtonPressed:(UIButton *)sender
 {
-    
+    [self.presentingViewController.presentingViewController.presentingViewController.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

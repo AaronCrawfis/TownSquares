@@ -41,6 +41,8 @@
     [self performSegueWithIdentifier:@"passDriverToBG" sender:self];
 }
 
-- (IBAction)noButtonPressed:(UIButton *)sender {
+- (IBAction)noButtonPressed:(UIButton *)sender
+{
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

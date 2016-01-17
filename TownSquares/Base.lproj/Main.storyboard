@@ -709,6 +709,13 @@
                                     <segue destination="Imn-VY-faX" kind="presentation" identifier="passDriverToCI" id="AZm-bc-Dj7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G6-F8-BM8">
+                                <rect key="frame" x="181" y="545" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Wcf-hz-Fz6" eventType="touchUpInside" id="cDL-qH-fft"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
