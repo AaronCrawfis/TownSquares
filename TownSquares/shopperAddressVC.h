@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "shopperObject.h"
 
 @interface shopperAddressVC : UIViewController
+
+@property shopperObject *createdShopper;
 
 @end
