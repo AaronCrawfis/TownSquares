@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverObject.h"
+#import "driverPickVC.h"
 
 @interface driverHomeVC : UIViewController
 
+// Driver Object
+@property driverObject *myDriver;
+
 // Buttons Pressed
-- (IBAction)runRouteButtonPressed:(UIButton *)sender;
 - (IBAction)manageAccountButtonPressed:(UIButton *)sender;
+- (IBAction)runRouteButtonPressed:(UIButton *)sender;
+- (IBAction)homeButtonPressed:(UIButton *)sender;
 
 @end

@@ -35,11 +35,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)useThisAddressButtonPressed:(UIButton *)sender {
+- (IBAction)useThisAddressButtonPressed:(UIButton *)sender
+{
+    [self fillShopper];
 }
 
 - (IBAction)saveThisAddressButtonPressed:(UIButton *)sender
 {
+    [self fillShopper];
     [self performSegueWithIdentifier:@"passShopperToInfo" sender:self];
 }
 
@@ -47,4 +50,15 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void) fillShopper
+{
+    self.createdShopper.firstName = self.firstNameTextField.text;
+    self.createdShopper.lastName = self.lastNameTextField.text;
+    self.createdShopper.address1 = self.address1TextField.text;
+    self.createdShopper.address2 = self.address2TextField.text;
+    self.createdShopper.state = self.stateTextField.text;
+    self.createdShopper.zip = self.zipTextField.text;
+}
+
 @end

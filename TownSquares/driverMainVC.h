@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverObject.h"
+#import "driverHomeVC.h"
 
 @interface driverMainVC : UIViewController
 
+// Driver Object
+@property driverObject *myDriver;
+
 // Button
 - (IBAction)signInButtonPressed:(UIButton *)sender;
+- (IBAction)backButtonPressed:(UIButton *)sender;
+
+// Text Fields
+@property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end

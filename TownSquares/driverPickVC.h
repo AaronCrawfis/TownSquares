@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverObject.h"
+#import "driverRouteVC.h"
 
 @interface driverPickVC : UIViewController
+
+// Driver Object
+@property driverObject *myDriver;
 
 // Variables
 @property int minTime;

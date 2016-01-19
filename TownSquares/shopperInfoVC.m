@@ -31,6 +31,11 @@
 
 - (IBAction)createAccountButtonPressed:(UIButton *)sender
 {
+    self.createdShopper.age = [self.ageTextField.text intValue];
+    if (self.genderSegmentedControl.selectedSegmentIndex == 0) self.createdShopper.gender = [NSString stringWithFormat:@"Male"];
+    else self.createdShopper.gender = [NSString stringWithFormat:@"Female"];
+    self.createdShopper.phone = self.phoneTextField.text;
+    self.createdShopper.email = self.emailTextField.text;
     
 }
 
@@ -38,4 +43,5 @@
 {
     
 }
+
 @end

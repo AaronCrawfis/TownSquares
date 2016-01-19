@@ -11,13 +11,14 @@
 @interface shopperObject : NSObject
 
 // Basic Info
-@property NSString *name;
+@property NSString *firstName;
+@property NSString *lastName;
 @property int age;
 @property NSString *gender;
 
 // Address
-@property NSString *street;
-@property NSString *city;
+@property NSString *address1;
+@property NSString *address2;
 @property NSString *state;
 @property NSString *zip;
 

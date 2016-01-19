@@ -24,16 +24,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"goToHome"]){
+        driverHomeVC *controller = (driverHomeVC *)segue.destinationViewController;
+        controller.myDriver = self.myDriver;
+    }
 }
-*/
 
-- (IBAction)signInButtonPressed:(UIButton *)sender {
+- (IBAction)signInButtonPressed:(UIButton *)sender
+{
+    self.myDriver = [[driverObject alloc] init];
+    [self performSegueWithIdentifier:@"goToHome" sender:self];
+}
+
+- (IBAction)backButtonPressed:(UIButton *)sender {
 }
 @end
