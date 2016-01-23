@@ -34,7 +34,9 @@
 }
 */
 
-- (IBAction)backButtonPressed:(UIButton *)sender {
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)signInButtonPressed:(UIButton *)sender {

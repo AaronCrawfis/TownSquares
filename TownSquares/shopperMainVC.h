@@ -10,6 +10,13 @@
 
 @interface shopperMainVC : UIViewController
 
+// Buttons
+- (IBAction)backButtonPressed:(UIButton *)sender;
+- (IBAction)addressButtonPressed:(UIButton *)sender;
+- (IBAction)signInButtonPressed:(UIButton *)sender;
 
+// Text Fields
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
