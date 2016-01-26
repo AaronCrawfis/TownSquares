@@ -57,6 +57,7 @@
 		93A399E91C5592BC00472EDF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399E81C5592BC00472EDF /* libz.tbd */; };
 		93A399EB1C5592C900472EDF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399EA1C5592C900472EDF /* libsqlite3.tbd */; };
 		93A399EF1C55950600472EDF /* shopperProductsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399EE1C55950600472EDF /* shopperProductsVC.m */; };
+		93A399F51C57E37700472EDF /* productCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399F41C57E37700472EDF /* productCellVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,8 @@
 		93A399EA1C5592C900472EDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93A399ED1C55950600472EDF /* shopperProductsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopperProductsVC.h; sourceTree = "<group>"; };
 		93A399EE1C55950600472EDF /* shopperProductsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperProductsVC.m; sourceTree = "<group>"; };
+		93A399F31C57E37700472EDF /* productCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productCellVC.h; sourceTree = "<group>"; };
+		93A399F41C57E37700472EDF /* productCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productCellVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 				93783D471C4B010C006D1201 /* shopperInfoVC.m */,
 				93A399ED1C55950600472EDF /* shopperProductsVC.h */,
 				93A399EE1C55950600472EDF /* shopperProductsVC.m */,
+				93A399F31C57E37700472EDF /* productCellVC.h */,
+				93A399F41C57E37700472EDF /* productCellVC.m */,
 			);
 			name = Shopper;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				93783D101C4AF1B3006D1201 /* driverMainVC.m in Sources */,
 				93783CFA1C4AEB2C006D1201 /* productObject.m in Sources */,
 				93783D261C4AFF50006D1201 /* driverLicensePhotoVC.m in Sources */,
+				93A399F51C57E37700472EDF /* productCellVC.m in Sources */,
 				93783CEB1C4AEA1A006D1201 /* shopperObject.m in Sources */,
 				93783D391C4B0047006D1201 /* driverPickVC.m in Sources */,
 				93783D131C4AF1BD006D1201 /* businessMainVC.m in Sources */,

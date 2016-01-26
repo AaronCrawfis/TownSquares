@@ -10,8 +10,7 @@
 #import <Parse/Parse.h>
 #import "shopperObject.h"
 
-
-@interface shopperProductsVC : UIViewController
+@interface shopperProductsVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {}
 
 // Classes
 @property shopperObject *myShopper;

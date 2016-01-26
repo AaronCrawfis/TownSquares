@@ -7,6 +7,7 @@
 //
 
 #import "shopperProductsVC.h"
+#import "productCellVC.h"
 
 @interface shopperProductsVC ()
 
@@ -61,10 +62,48 @@
     {
         NSLog(@"%@", object.objectId);
     }
+    
+    [self.productCollectionView reloadData];
 }
 
 - (IBAction)searchBarChanged:(UITextField *)sender
 {
     
 }
+
+
+#pragma mark - UICollectionView
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"productCell";
+    
+    // Create Cell
+    productCellVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor];
+    
+    
+    // Fill Cell w/Data
+    PFObject *cellProduct = [self.myProducts objectAtIndex:indexPath.row];
+    PFFile *cellPictureFile = cellProduct[@"productPicture"];
+    [cellPictureFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            cell.imageView.image = image;
+        }
+        else
+        {
+            // Put in default picture
+        }
+    }];
+    
+    // Return Cell
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.myProducts.count;
+}
+
 @end
