@@ -7,6 +7,7 @@
 //
 
 #import "shopperMainVC.h"
+#import "shopperProductsVC.h"
 
 @interface shopperMainVC ()
 
@@ -25,6 +26,14 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"storeSegue"]){
+        shopperProductsVC *controller = (shopperProductsVC *)segue.destinationViewController;
+        controller.myShopper = self.myShopper;
+    }
+}
+
 
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
@@ -34,6 +43,8 @@
 - (IBAction)addressButtonPressed:(UIButton *)sender {
 }
 
-- (IBAction)signInButtonPressed:(UIButton *)sender {
+- (IBAction)signInButtonPressed:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"storeSegue" sender:self];
 }
 @end

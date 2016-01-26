@@ -416,10 +416,10 @@
             </objects>
             <point key="canvasLocation" x="2118.5" y="-1730.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Shopper ProductsVC-->
         <scene sceneID="y5v-p4-Fah">
             <objects>
-                <viewController id="f2s-dQ-B2b" sceneMemberID="viewController">
+                <viewController id="f2s-dQ-B2b" customClass="shopperProductsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U4g-de-oj9"/>
                         <viewControllerLayoutGuide type="bottom" id="2JO-zW-Wyt"/>
@@ -431,8 +431,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background_Blank.png" translatesAutoresizingMaskIntoConstraints="NO" id="FUA-1Y-jU6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqR-rb-Zb6">
+                                <rect key="frame" x="20" y="92" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="searchBarChanged:" destination="f2s-dQ-B2b" eventType="editingChanged" id="JpQ-dm-Fn5"/>
+                                </connections>
+                            </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-5Q-1om">
                                 <rect key="frame" x="20" y="130" width="335" height="517"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VAX-oh-Pgd">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -440,7 +449,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3ll-L9-eC0">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="3ll-L9-eC0">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -456,6 +465,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="productCollectionView" destination="J5G-5Q-1om" id="s7f-vb-gKk"/>
+                        <outlet property="searchBarTextField" destination="MqR-rb-Zb6" id="bkg-aU-ry8"/>
                         <segue destination="KCN-nc-tSq" kind="presentation" id="GO2-ep-VSJ"/>
                     </connections>
                 </viewController>

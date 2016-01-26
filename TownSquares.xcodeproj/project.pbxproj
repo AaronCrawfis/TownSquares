@@ -56,6 +56,7 @@
 		93A399E71C5592B000472EDF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399E61C5592B000472EDF /* SystemConfiguration.framework */; };
 		93A399E91C5592BC00472EDF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399E81C5592BC00472EDF /* libz.tbd */; };
 		93A399EB1C5592C900472EDF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399EA1C5592C900472EDF /* libsqlite3.tbd */; };
+		93A399EF1C55950600472EDF /* shopperProductsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399EE1C55950600472EDF /* shopperProductsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,8 @@
 		93A399E61C5592B000472EDF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		93A399E81C5592BC00472EDF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		93A399EA1C5592C900472EDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		93A399ED1C55950600472EDF /* shopperProductsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopperProductsVC.h; sourceTree = "<group>"; };
+		93A399EE1C55950600472EDF /* shopperProductsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperProductsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +313,8 @@
 				93783D441C4B00F5006D1201 /* shopperAddressVC.m */,
 				93783D461C4B010C006D1201 /* shopperInfoVC.h */,
 				93783D471C4B010C006D1201 /* shopperInfoVC.m */,
+				93A399ED1C55950600472EDF /* shopperProductsVC.h */,
+				93A399EE1C55950600472EDF /* shopperProductsVC.m */,
 			);
 			name = Shopper;
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 				93783D231C4AFF38006D1201 /* driverBGCheckVC.m in Sources */,
 				93783CF71C4AEADA006D1201 /* purchaseObject.m in Sources */,
 				93783D451C4B00F5006D1201 /* shopperAddressVC.m in Sources */,
+				93A399EF1C55950600472EDF /* shopperProductsVC.m in Sources */,
 				93783D3F1C4B00A0006D1201 /* businessProductInfoVC.m in Sources */,
 				93783D4B1C4B06BD006D1201 /* AppDelegate.m in Sources */,
 				93783CB11C4AE7DE006D1201 /* main.m in Sources */,

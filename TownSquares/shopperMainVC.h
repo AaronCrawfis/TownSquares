@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "shopperObject.h"
 
 @interface shopperMainVC : UIViewController
 
@@ -18,5 +19,8 @@
 // Text Fields
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+
+// Objects
+@property shopperObject *myShopper;
 
 @end
