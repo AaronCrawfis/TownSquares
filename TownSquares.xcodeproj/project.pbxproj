@@ -58,6 +58,11 @@
 		93A399EB1C5592C900472EDF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A399EA1C5592C900472EDF /* libsqlite3.tbd */; };
 		93A399EF1C55950600472EDF /* shopperProductsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399EE1C55950600472EDF /* shopperProductsVC.m */; };
 		93A399F51C57E37700472EDF /* productCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399F41C57E37700472EDF /* productCellVC.m */; };
+		93A399F81C5A824000472EDF /* productInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A399F71C5A824000472EDF /* productInfoVC.m */; };
+		93A399FD1C5A96B500472EDF /* Cat_All.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399F91C5A96B500472EDF /* Cat_All.png */; };
+		93A399FE1C5A96B500472EDF /* Cat_Clothes.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FA1C5A96B500472EDF /* Cat_Clothes.png */; };
+		93A399FF1C5A96B500472EDF /* Cat_Electronics.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FB1C5A96B500472EDF /* Cat_Electronics.png */; };
+		93A39A001C5A96B500472EDF /* Cat_Shoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FC1C5A96B500472EDF /* Cat_Shoes.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +171,12 @@
 		93A399EE1C55950600472EDF /* shopperProductsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperProductsVC.m; sourceTree = "<group>"; };
 		93A399F31C57E37700472EDF /* productCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productCellVC.h; sourceTree = "<group>"; };
 		93A399F41C57E37700472EDF /* productCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productCellVC.m; sourceTree = "<group>"; };
+		93A399F61C5A824000472EDF /* productInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfoVC.h; sourceTree = "<group>"; };
+		93A399F71C5A824000472EDF /* productInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfoVC.m; sourceTree = "<group>"; };
+		93A399F91C5A96B500472EDF /* Cat_All.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_All.png; path = Art/Cat_All.png; sourceTree = SOURCE_ROOT; };
+		93A399FA1C5A96B500472EDF /* Cat_Clothes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Clothes.png; path = Art/Cat_Clothes.png; sourceTree = SOURCE_ROOT; };
+		93A399FB1C5A96B500472EDF /* Cat_Electronics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Electronics.png; path = Art/Cat_Electronics.png; sourceTree = SOURCE_ROOT; };
+		93A399FC1C5A96B500472EDF /* Cat_Shoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Shoes.png; path = Art/Cat_Shoes.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +240,10 @@
 		93783CAE1C4AE7DE006D1201 /* TownSquares */ = {
 			isa = PBXGroup;
 			children = (
+				93A399F91C5A96B500472EDF /* Cat_All.png */,
+				93A399FA1C5A96B500472EDF /* Cat_Clothes.png */,
+				93A399FB1C5A96B500472EDF /* Cat_Electronics.png */,
+				93A399FC1C5A96B500472EDF /* Cat_Shoes.png */,
 				93783D4E1C4DDC73006D1201 /* Background_Blank.png */,
 				93783D4F1C4DDC73006D1201 /* Background_Logo.png */,
 				93783D491C4B06BD006D1201 /* AppDelegate.h */,
@@ -320,6 +335,8 @@
 				93A399EE1C55950600472EDF /* shopperProductsVC.m */,
 				93A399F31C57E37700472EDF /* productCellVC.h */,
 				93A399F41C57E37700472EDF /* productCellVC.m */,
+				93A399F61C5A824000472EDF /* productInfoVC.h */,
+				93A399F71C5A824000472EDF /* productInfoVC.m */,
 			);
 			name = Shopper;
 			sourceTree = "<group>";
@@ -509,8 +526,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A39A001C5A96B500472EDF /* Cat_Shoes.png in Resources */,
+				93A399FF1C5A96B500472EDF /* Cat_Electronics.png in Resources */,
 				93783D511C4DDC73006D1201 /* Background_Logo.png in Resources */,
 				93783CBF1C4AE7DE006D1201 /* LaunchScreen.storyboard in Resources */,
+				93A399FD1C5A96B500472EDF /* Cat_All.png in Resources */,
+				93A399FE1C5A96B500472EDF /* Cat_Clothes.png in Resources */,
 				93783CBC1C4AE7DE006D1201 /* Assets.xcassets in Resources */,
 				93783CBA1C4AE7DE006D1201 /* Main.storyboard in Resources */,
 				93783D501C4DDC73006D1201 /* Background_Blank.png in Resources */,
@@ -555,6 +576,7 @@
 				93783D0A1C4AF187006D1201 /* shopperMainVC.m in Sources */,
 				93783CFD1C4AEBF2006D1201 /* businessClass.m in Sources */,
 				93783D421C4B00BF006D1201 /* businessListVC.m in Sources */,
+				93A399F81C5A824000472EDF /* productInfoVC.m in Sources */,
 				93783D191C4AF23A006D1201 /* businessSignInVC.m in Sources */,
 				93783D481C4B010C006D1201 /* shopperInfoVC.m in Sources */,
 				93783D231C4AFF38006D1201 /* driverBGCheckVC.m in Sources */,

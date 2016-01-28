@@ -14,6 +14,7 @@
 @property NSString *name;
 @property NSString *category;
 @property double price;
+@property NSString *business;
 
 // More Information
 @property NSString *vid;

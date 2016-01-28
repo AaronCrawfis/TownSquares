@@ -8,6 +8,15 @@
 
 #import "shopperProductsVC.h"
 #import "productCellVC.h"
+#import "productInfoVC.h"
+
+#define CAT_MODE 1
+#define PRO_MODE 2
+
+#define CAT_ALL 0
+#define CAT_SHOES 1
+#define CAT_CLOTHES 2
+#define CAT_ELECTRONICS 3
 
 @interface shopperProductsVC ()
 
@@ -19,26 +28,11 @@
 {
     [super viewDidLoad];
     
-    // Pull Products From Server
-    PFQuery *query = [PFQuery queryWithClassName:@"Goods"];
-    [query whereKey:@"Zone" equalTo:@"ND"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            /* Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-            }*/
-            
-            self.myProducts = [NSArray arrayWithArray:objects];
-            [self updateCollectionView];
-        }
-        else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    self.currentMode = CAT_MODE;
+    self.currentCategory = CAT_ALL;
+    
+    // Load Images into Array
+    self.catPhotoArray = [[NSMutableArray alloc] initWithObjects:@"Cat_All.png", @"Cat_Shoes",@"Cat_Clothes",@"Cat_Electronics",nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,15 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"productSegue"]){
+        productInfoVC *controller = (productInfoVC *)segue.destinationViewController;
+        controller.myProduct = self.myProduct;
+    }
 }
-*/
 
 - (void)updateCollectionView
 {
@@ -71,6 +63,32 @@
     
 }
 
+#pragma mark - Helper Functions
+
+- (void) runQuery
+{
+    // Pull Products From Server
+    PFQuery *query = [PFQuery queryWithClassName:@"Goods"];
+    [query whereKey:@"Zone" equalTo:@"ND"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            /* Do something with the found objects
+             for (PFObject *object in objects) {
+             NSLog(@"%@", object.objectId);
+             }*/
+            
+            self.myProducts = [NSArray arrayWithArray:objects];
+            [self updateCollectionView];
+        }
+        else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 
 #pragma mark - UICollectionView
 
@@ -80,22 +98,29 @@
     
     // Create Cell
     productCellVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor];
+    cell.backgroundColor = [UIColor whiteColor];
     
-    
-    // Fill Cell w/Data
-    PFObject *cellProduct = [self.myProducts objectAtIndex:indexPath.row];
-    PFFile *cellPictureFile = cellProduct[@"productPicture"];
-    [cellPictureFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-        if (!error) {
-            UIImage *image = [UIImage imageWithData:imageData];
-            cell.imageView.image = image;
-        }
-        else
-        {
-            // Put in default picture
-        }
-    }];
+    if (self.currentMode == CAT_MODE)
+    {
+        [cell.imageView setImage:[UIImage imageNamed:[self.catPhotoArray objectAtIndex:indexPath.row]]];
+    }
+    else if (self.currentMode == PRO_MODE)
+    {
+        // Fill Cell w/Data
+        PFObject *cellProduct = [self.myProducts objectAtIndex:indexPath.row];
+        PFFile *cellPictureFile = cellProduct[@"productPicture"];
+        [cellPictureFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                cell.imageView.image = image;
+                self.myProduct.photo = imageData;
+            }
+            else
+            {
+                // Put in default picture
+            }
+        }];
+    }
     
     // Return Cell
     return cell;
@@ -103,7 +128,57 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.myProducts.count;
+    NSInteger i = 0;
+    
+    if (self.currentMode == CAT_MODE) i = 4;
+    else i = self.myProducts.count;
+    
+    return i;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.currentMode == PRO_MODE)
+    {
+        // Create Product Object
+        PFObject *cellProduct = [self.myProducts objectAtIndex:indexPath.row];
+        self.myProduct = [[productObject alloc] init];
+        
+        // Fill Object Information
+        self.myProduct.name = cellProduct[@"productName"];
+        self.myProduct.price = [cellProduct[@"productPrice"] floatValue];
+        self.myProduct.briefDescription = cellProduct[@"productDes"];
+        
+        PFFile *cellPictureFile = cellProduct[@"productPicture"];
+        [cellPictureFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error) {
+                self.myProduct.photo = imageData;
+                [self performSegueWithIdentifier:@"productSegue" sender:self];
+            }
+            else
+            {
+                // Put in default picture
+            }
+        }];
+    }
+    else if (self.currentMode == CAT_MODE)
+    {
+        self.currentCategory = (int) indexPath.row;
+        self.currentMode = PRO_MODE;
+        [self.productCollectionView reloadData];
+    }
+    
+}
+
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    self.currentMode = CAT_MODE;
+    [self.productCollectionView reloadData];
+}
+
+- (IBAction)cartButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)myAccountButtonPressed:(UIButton *)sender {
+}
 @end
