@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "businessClass.h"
 
-@interface businessListVC : UIViewController
+@interface businessListVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+// Data
+@property NSArray *productList;
+@property businessClass *myBusiness;
+
+// TableView
+@property (strong, nonatomic) IBOutlet UITableView *productTableView;
 
 @end

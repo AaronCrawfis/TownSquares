@@ -7,6 +7,7 @@
 //
 
 #import "businessMainVC.h"
+#import "businessListVC.h"
 
 @interface businessMainVC ()
 
@@ -24,21 +25,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"productsSegue"])
+    {
+        businessListVC *controller = (businessListVC *)segue.destinationViewController;
+        controller.myBusiness = self.myBusiness;
+    }
 }
-*/
 
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)signInButtonPressed:(UIButton *)sender {
+- (IBAction)signInButtonPressed:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"productsSegue" sender:self];
 }
 @end

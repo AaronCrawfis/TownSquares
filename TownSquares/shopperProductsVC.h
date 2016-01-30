@@ -37,5 +37,6 @@
 - (IBAction)backButtonPressed:(UIButton *)sender;
 - (IBAction)cartButtonPressed:(UIButton *)sender;
 - (IBAction)myAccountButtonPressed:(UIButton *)sender;
+- (IBAction)goBackButtonPressed:(UIButton *)sender;
 
 @end

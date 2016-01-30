@@ -75,7 +75,7 @@
     // Pull Products From Server
     PFQuery *query = [PFQuery queryWithClassName:@"Goods"];
     [query whereKey:@"Zone" equalTo:@"ND"];
-    if (self.currentCategoryName != @"all")[query whereKey:@"productCategory" equalTo:self.currentCategoryName];
+    if (![self.currentCategoryName isEqualToString:@"all"])[query whereKey:@"productCategory" equalTo:self.currentCategoryName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -194,6 +194,13 @@
 - (IBAction)cartButtonPressed:(UIButton *)sender {
 }
 
-- (IBAction)myAccountButtonPressed:(UIButton *)sender {
+- (IBAction)myAccountButtonPressed:(UIButton *)sender
+{
+    
+}
+
+- (IBAction)goBackButtonPressed:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

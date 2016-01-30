@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "businessClass.h"
 
 @interface businessMainVC : UIViewController
 
 // Buttons
 - (IBAction)backButtonPressed:(UIButton *)sender;
 - (IBAction)signInButtonPressed:(UIButton *)sender;
+
+// Data
+@property businessClass *myBusiness;
 
 @end
