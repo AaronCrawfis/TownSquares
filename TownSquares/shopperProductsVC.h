@@ -16,6 +16,7 @@
 // Variables
 @property int currentMode;
 @property int currentCategory;
+@property NSString *currentCategoryName;
 @property NSMutableArray *catPhotoArray;
 
 // Classes

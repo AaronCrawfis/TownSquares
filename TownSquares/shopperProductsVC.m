@@ -13,6 +13,8 @@
 #define CAT_MODE 1
 #define PRO_MODE 2
 
+#define NUM_CATS 4
+
 #define CAT_ALL 0
 #define CAT_SHOES 1
 #define CAT_CLOTHES 2
@@ -30,9 +32,12 @@
     
     self.currentMode = CAT_MODE;
     self.currentCategory = CAT_ALL;
+    self.currentCategoryName = @"all";
     
     // Load Images into Array
     self.catPhotoArray = [[NSMutableArray alloc] initWithObjects:@"Cat_All.png", @"Cat_Shoes",@"Cat_Clothes",@"Cat_Electronics",nil];
+    
+    [self runQuery];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +75,7 @@
     // Pull Products From Server
     PFQuery *query = [PFQuery queryWithClassName:@"Goods"];
     [query whereKey:@"Zone" equalTo:@"ND"];
+    if (self.currentCategoryName != @"all")[query whereKey:@"productCategory" equalTo:self.currentCategoryName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -114,6 +120,7 @@
                 UIImage *image = [UIImage imageWithData:imageData];
                 cell.imageView.image = image;
                 self.myProduct.photo = imageData;
+                
             }
             else
             {
@@ -130,9 +137,8 @@
 {
     NSInteger i = 0;
     
-    if (self.currentMode == CAT_MODE) i = 4;
+    if (self.currentMode == CAT_MODE) i = NUM_CATS;
     else i = self.myProducts.count;
-    
     return i;
 }
 
@@ -140,6 +146,7 @@
 {
     if (self.currentMode == PRO_MODE)
     {
+        
         // Create Product Object
         PFObject *cellProduct = [self.myProducts objectAtIndex:indexPath.row];
         self.myProduct = [[productObject alloc] init];
@@ -164,7 +171,15 @@
     else if (self.currentMode == CAT_MODE)
     {
         self.currentCategory = (int) indexPath.row;
+        
+        if (self.currentCategory == CAT_ALL) self.currentCategoryName = @"all";
+        else if (self.currentCategory == CAT_SHOES) self.currentCategoryName = @"shoes";
+        else if (self.currentCategory == CAT_ELECTRONICS) self.currentCategoryName = @"electronics";
+        else if (self.currentCategory == CAT_CLOTHES) self.currentCategoryName = @"clothes";
+        else self.currentCategoryName = @"";
+        
         self.currentMode = PRO_MODE;
+        [self runQuery];
         [self.productCollectionView reloadData];
     }
     
