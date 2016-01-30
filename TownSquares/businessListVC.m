@@ -8,7 +8,7 @@
 
 #import "businessListVC.h"
 #import <Parse/Parse.h>
-#import "productObject.h"
+#import "businessProductInfoVC.h"
 
 @interface businessListVC ()
 
@@ -33,15 +33,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"productInfoSegue"])
+    {
+        businessProductInfoVC *controller = (businessProductInfoVC *)segue.destinationViewController;
+        controller.myProduct = self.myProduct;
+    }
 }
-*/
+
 
 #pragma mark - Helper Functions
 
@@ -90,9 +93,28 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Setup Data Source/Destination
+    PFObject *object = [self.productList objectAtIndex:indexPath.row];
+    productObject *product = [[productObject alloc] init];
     
+    // Copy Data
+    product.name = object[@"productName"];
+    product.driver = [self runDriverQuery:product.name];
+    product.price = [object[@"productPrice"] doubleValue];
+
+    
+    self.myProduct = product;
+    
+    [self performSegueWithIdentifier:@"productInfoSegue" sender:self];
 }
 
+#pragma mark - Helper Function
+-(driverObject *) runDriverQuery:(NSString *)productName
+{
+    driverObject *driver = [[driverObject alloc] init];
+    
+    return driver;
+}
 
 
 @end

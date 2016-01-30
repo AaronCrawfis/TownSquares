@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "routeObject.h"
+#import "driverObject.h"
 
 @interface productObject : NSObject
 
@@ -24,5 +26,8 @@
 
 @property NSData *photo;
 
+// Delivery Information
+@property routeObject *route;
+@property driverObject *driver;
 
 @end

@@ -344,10 +344,10 @@
 		93783D0C1C4AF197006D1201 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				93783D111C4AF1BD006D1201 /* businessMainVC.h */,
-				93783D121C4AF1BD006D1201 /* businessMainVC.m */,
 				93783D171C4AF23A006D1201 /* businessSignInVC.h */,
 				93783D181C4AF23A006D1201 /* businessSignInVC.m */,
+				93783D111C4AF1BD006D1201 /* businessMainVC.h */,
+				93783D121C4AF1BD006D1201 /* businessMainVC.m */,
 				93783D401C4B00BF006D1201 /* businessListVC.h */,
 				93783D411C4B00BF006D1201 /* businessListVC.m */,
 				93783D3D1C4B00A0006D1201 /* businessProductInfoVC.h */,

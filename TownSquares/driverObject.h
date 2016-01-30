@@ -17,6 +17,7 @@
 @property NSString *password;
 @property NSString *ssn;
 @property NSData *IDPicture;
+@property NSData *photo;
 @property bool isEmployable;
 
 // Address
