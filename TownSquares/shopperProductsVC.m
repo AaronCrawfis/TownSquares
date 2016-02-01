@@ -38,6 +38,9 @@
     self.catPhotoArray = [[NSMutableArray alloc] initWithObjects:@"Cat_All.png", @"Cat_Shoes",@"Cat_Clothes",@"Cat_Electronics",nil];
     
     [self runQuery];
+    
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {

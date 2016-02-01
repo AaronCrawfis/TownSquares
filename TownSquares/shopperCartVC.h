@@ -20,5 +20,8 @@
 // Table View
 @property (strong, nonatomic) IBOutlet UITableView *cartTableView;
 
+// Data
+@property (strong, nonatomic) NSMutableArray *cartList;
+@property float totalCost;
 
 @end

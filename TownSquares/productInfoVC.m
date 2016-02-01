@@ -39,7 +39,21 @@
 
 - (IBAction)addToCartButtonPressed:(UIButton *)sender
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
+    NSMutableArray *cartList = [userDefaults objectForKey:@"cartList"];
+    NSMutableArray *copyList = [[NSMutableArray alloc] initWithArray:cartList];
+    NSString *stringToAdd = self.myProduct.name;
+    [copyList addObject:stringToAdd];
+    
+    NSMutableArray *costList = [userDefaults objectForKey:@"cartCosts"];
+    NSMutableArray *copyCostList = [[NSMutableArray alloc] initWithArray:costList];
+    [copyCostList addObject:[NSString stringWithFormat:@"%f",self.myProduct.price]];
+    
+    [userDefaults setObject:copyCostList forKey:@"cartCosts"];
+    [userDefaults setObject:copyList forKey:@"cartList"];
+    [userDefaults synchronize];
+    NSLog(@"Added item to cart");
 }
 
 @end

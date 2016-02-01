@@ -7,6 +7,7 @@
 //
 
 #import "shopperCartVC.h"
+#import <Parse/Parse.h>
 
 @interface shopperCartVC ()
 
@@ -14,9 +15,12 @@
 
 @implementation shopperCartVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.totalCost = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,14 +42,39 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.cartList = [userDefaults objectForKey:@"cartList"];
+    NSMutableArray *costs = [userDefaults objectForKey:@"cartCosts"];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cartCell" forIndexPath:indexPath];
+    
+    NSString *name = [self.cartList objectAtIndex:indexPath.row];
+    NSString *price = [costs objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = name;
+    cell.detailTextLabel.text = [price substringToIndex:4];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%@",[price substringToIndex:4]];
+    
+    self.totalCost += [price floatValue];
+    
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"$%.2f",self.totalCost];
+    
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    // Get Cart List
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.cartList = [userDefaults objectForKey:@"cartList"];
+    
+    return self.cartList.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - Buttons
@@ -55,6 +84,16 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)checkoutButtonPressed:(UIButton *)sender {
+- (IBAction)checkoutButtonPressed:(UIButton *)sender
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    [userDefaults setObject:array forKey:@"cartList"];
+    [userDefaults setObject:array forKey:@"cartCosts"];
+    [userDefaults synchronize];
+    
+    [self.cartTableView reloadData];
+    self.totalCost = 0;
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"$0"];
 }
 @end

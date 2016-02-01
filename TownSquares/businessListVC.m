@@ -69,6 +69,7 @@
             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
             
             self.productList = [NSArray arrayWithArray:objects];
+            [self.productTableView reloadData];
         }
         else {
             // Log details of the failure
@@ -98,6 +99,8 @@
             newDriver.phone = driverObject[@"phoneNumber"];
             
             self.myDriver = newDriver;
+            
+            
         }
         else {
             // Log details of the failure
@@ -152,6 +155,7 @@
     [self performSegueWithIdentifier:@"productInfoSegue" sender:self];
 }
 
+#pragma mark - Buttons
 
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
