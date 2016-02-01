@@ -63,6 +63,7 @@
 		93A399FE1C5A96B500472EDF /* Cat_Clothes.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FA1C5A96B500472EDF /* Cat_Clothes.png */; };
 		93A399FF1C5A96B500472EDF /* Cat_Electronics.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FB1C5A96B500472EDF /* Cat_Electronics.png */; };
 		93A39A001C5A96B500472EDF /* Cat_Shoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A399FC1C5A96B500472EDF /* Cat_Shoes.png */; };
+		93A39A1B1C5F9B3E00472EDF /* shopperCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A39A1A1C5F9B3E00472EDF /* shopperCartVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,8 @@
 		93A399FA1C5A96B500472EDF /* Cat_Clothes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Clothes.png; path = Art/Cat_Clothes.png; sourceTree = SOURCE_ROOT; };
 		93A399FB1C5A96B500472EDF /* Cat_Electronics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Electronics.png; path = Art/Cat_Electronics.png; sourceTree = SOURCE_ROOT; };
 		93A399FC1C5A96B500472EDF /* Cat_Shoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat_Shoes.png; path = Art/Cat_Shoes.png; sourceTree = SOURCE_ROOT; };
+		93A39A191C5F9B3E00472EDF /* shopperCartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopperCartVC.h; sourceTree = "<group>"; };
+		93A39A1A1C5F9B3E00472EDF /* shopperCartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopperCartVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 				93A399F41C57E37700472EDF /* productCellVC.m */,
 				93A399F61C5A824000472EDF /* productInfoVC.h */,
 				93A399F71C5A824000472EDF /* productInfoVC.m */,
+				93A39A191C5F9B3E00472EDF /* shopperCartVC.h */,
+				93A39A1A1C5F9B3E00472EDF /* shopperCartVC.m */,
 			);
 			name = Shopper;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 			files = (
 				93783D201C4AFF23006D1201 /* driverRequirementsVC.m in Sources */,
 				93783D101C4AF1B3006D1201 /* driverMainVC.m in Sources */,
+				93A39A1B1C5F9B3E00472EDF /* shopperCartVC.m in Sources */,
 				93783CFA1C4AEB2C006D1201 /* productObject.m in Sources */,
 				93783D261C4AFF50006D1201 /* driverLicensePhotoVC.m in Sources */,
 				93A399F51C57E37700472EDF /* productCellVC.m in Sources */,

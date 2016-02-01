@@ -191,7 +191,9 @@
     [self.productCollectionView reloadData];
 }
 
-- (IBAction)cartButtonPressed:(UIButton *)sender {
+- (IBAction)cartButtonPressed:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"cartSegue" sender:self];
 }
 
 - (IBAction)myAccountButtonPressed:(UIButton *)sender
