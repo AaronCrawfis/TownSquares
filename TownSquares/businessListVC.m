@@ -10,6 +10,9 @@
 #import <Parse/Parse.h>
 #import "businessProductInfoVC.h"
 
+#define MODE_HISTORY 2
+#define MODE_PENDING 1
+
 @interface businessListVC ()
 
 @end
@@ -20,7 +23,10 @@
 {
     [super viewDidLoad];
     
-    [self runQuery];
+    self.currentMode = MODE_PENDING;
+    self.myBusiness.name = @"Test";
+    
+    [self runProductQuery];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -42,28 +48,56 @@
     {
         businessProductInfoVC *controller = (businessProductInfoVC *)segue.destinationViewController;
         controller.myProduct = self.myProduct;
+        controller.firstName = self.myProduct.driverFirstName;
+        controller.lastName  = self.myProduct.driverLastName;
     }
 }
 
 
 #pragma mark - Helper Functions
 
--(void) runQuery
+-(void) runProductQuery
 {
     // Pull Products From Server
-    PFQuery *query = [PFQuery queryWithClassName:@"Goods"];
-    [query whereKey:@"Zone" equalTo:@"ND"];
-    //[query whereKey:@"Business" equalTo:self.myBusiness.name];
+    PFQuery *query = [PFQuery queryWithClassName:@"Purchases"];
+    [query whereKey:@"Business" equalTo:self.myBusiness.name];
+    if (self.currentMode == MODE_PENDING) [query whereKey:@"State" equalTo:@"New"];
+    else [query whereKey:@"State" equalTo:@"Old"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            /* Do something with the found objects
-             for (PFObject *object in objects) {
-             NSLog(@"%@", object.objectId);
-             }*/
             
             self.productList = [NSArray arrayWithArray:objects];
+        }
+        else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+-(void) runDriverQueryWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName
+{
+    
+    // Pull Products From Server
+    PFQuery *query = [PFQuery queryWithClassName:@"Drivers"];
+    [query whereKey:@"lastName" equalTo:lastName];
+    [query whereKey:@"firstName" equalTo:firstName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu drivers.", (unsigned long)objects.count);
+            
+            driverObject *newDriver = [[driverObject alloc] init];
+            PFObject *driverObject = objects[0];
+            
+            // Fill driver object
+            newDriver.firstName = firstName;
+            newDriver.lastName = lastName;
+            newDriver.phone = driverObject[@"phoneNumber"];
+            
+            self.myDriver = newDriver;
         }
         else {
             // Log details of the failure
@@ -99,22 +133,42 @@
     
     // Copy Data
     product.name = object[@"productName"];
-    product.driver = [self runDriverQuery:product.name];
     product.price = [object[@"productPrice"] doubleValue];
-
+    
+    // Run query
+    [self runDriverQueryWithFirstName:object[@"driverFirstName"] andLastName:object[@"driverLastName"]];
+    product.driver = self.myDriver;
+    product.driverFirstName = object[@"driverFirstName"];
+    product.driverLastName = object[@"driverLastName"];
+    product.pickupTime = object[@"pickupTime"];
+    product.briefDescription = object[@"briefDescription"];
+    
+    // Picture
+    product.photoPointer = object[@"productPicture"];
+    
     
     self.myProduct = product;
     
     [self performSegueWithIdentifier:@"productInfoSegue" sender:self];
 }
 
-#pragma mark - Helper Function
--(driverObject *) runDriverQuery:(NSString *)productName
+
+- (IBAction)backButtonPressed:(UIButton *)sender
 {
-    driverObject *driver = [[driverObject alloc] init];
-    
-    return driver;
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)pendingPurchasesButtonPressed:(UIButton *)sender
+{
+    self.currentMode = MODE_PENDING;
+    [self runProductQuery];
+    [self.productTableView reloadData];
+}
 
+- (IBAction)historyButtonPressed:(UIButton *)sender
+{
+    self.currentMode = MODE_HISTORY;
+    [self runProductQuery];
+    [self.productTableView reloadData];
+}
 @end

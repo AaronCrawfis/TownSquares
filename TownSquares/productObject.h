@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "routeObject.h"
 #import "driverObject.h"
+#import <Parse/Parse.h>
 
 @interface productObject : NSObject
 
@@ -25,8 +26,12 @@
 @property NSString *moreInfo;
 
 @property NSData *photo;
+@property PFFile *photoPointer;
 
 // Delivery Information
+@property NSString *driverFirstName;
+@property NSString *driverLastName;
+@property NSString *pickupTime;
 @property routeObject *route;
 @property driverObject *driver;
 

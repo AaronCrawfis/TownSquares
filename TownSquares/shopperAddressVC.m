@@ -8,6 +8,7 @@
 
 #import "shopperAddressVC.h"
 #import "shopperInfoVC.h"
+#import "shopperProductsVC.h"
 
 @interface shopperAddressVC ()
 
@@ -27,6 +28,10 @@
         shopperInfoVC *controller = (shopperInfoVC *)segue.destinationViewController;
         controller.createdShopper = self.createdShopper;
     }
+    else if([segue.identifier isEqualToString:@"passShopperToInfo"]){
+        shopperProductsVC *controller = (shopperProductsVC *)segue.destinationViewController;
+        controller.myShopper = self.createdShopper;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +43,7 @@
 - (IBAction)useThisAddressButtonPressed:(UIButton *)sender
 {
     [self fillShopper];
+    [self performSegueWithIdentifier:@"goToProductsSegue" sender:self];
 }
 
 - (IBAction)saveThisAddressButtonPressed:(UIButton *)sender

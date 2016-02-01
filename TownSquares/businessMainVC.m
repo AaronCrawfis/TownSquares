@@ -43,6 +43,8 @@
 
 - (IBAction)signInButtonPressed:(UIButton *)sender
 {
+    businessClass *myBusiness = [[businessClass alloc] init];
+    self.myBusiness = myBusiness;
     [self performSegueWithIdentifier:@"productsSegue" sender:self];
 }
 @end

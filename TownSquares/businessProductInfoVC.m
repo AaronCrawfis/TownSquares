@@ -7,6 +7,7 @@
 //
 
 #import "businessProductInfoVC.h"
+#import <Parse/Parse.h>
 
 @interface businessProductInfoVC ()
 
@@ -22,14 +23,27 @@
     self.productPriceTextField.text = [NSString stringWithFormat:@"$%.2f",self.myProduct.price];
     self.productDescriptionTextView.text = self.myProduct.briefDescription;
     self.productImage.image = [UIImage imageWithData:self.myProduct.photo];
+    self.timeTextField.text = self.myProduct.pickupTime;
+    self.productImage.image = [UIImage imageWithData:self.myProduct.photo];
+        
+    [self.myProduct.photoPointer getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            self.productImage.image = image;
+            
+        }
+        else
+        {
+            // Put in default picture
+        }
+    }];
+
     
-    if (self.myProduct.driver != NULL)
-    {
-        self.driverNameTextField.text = [NSString stringWithFormat:@"%@ %@",self.myProduct.driver.firstName,self.myProduct.driver.lastName];
-        self.callButton.titleLabel.text = self.myProduct.driver.phone;
-        self.driverImage.image = [UIImage imageWithData:self.myProduct.driver.photo];
-    }
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self runDriverQueryWithFirstName:self.firstName andLastName:self.lastName];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,14 +61,51 @@
 }
 */
 
+-(void) runDriverQueryWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName
+{
+    
+    // Pull Products From Server
+    PFQuery *query = [PFQuery queryWithClassName:@"Drivers"];
+    [query whereKey:@"lastName" equalTo:lastName];
+    [query whereKey:@"firstName" equalTo:firstName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu drivers.", (unsigned long)objects.count);
+            
+            PFObject *driverObject = objects[0];
+            
+            self.driverNameTextField.text = [NSString stringWithFormat:@"%@ %@",driverObject[@"firstName"],driverObject[@"lastName"]];
+            self.phoneTextField.text = driverObject[@"phoneNumber"];
+            
+            
+            PFFile *driverPicturePointer = driverObject[@"driverPicture"];
+            [driverPicturePointer getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+                if (!error) {
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    self.driverImage.image = image;
+                    
+                }
+                else
+                {
+                    // Put in default picture
+                }
+            }];
+
+        }
+        else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
+
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)callButtonPressed:(UIButton *)sender
-{
-    
-}
 
 @end
