@@ -32,6 +32,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Helper Functions
+
+-(void)showAlert
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Success"
+                                  message:@"Item Added to Cart"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                                    
+                                    
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - Buttons
+
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -53,7 +79,9 @@
     [userDefaults setObject:copyCostList forKey:@"cartCosts"];
     [userDefaults setObject:copyList forKey:@"cartList"];
     [userDefaults synchronize];
-    NSLog(@"Added item to cart");
+    
+    [self showAlert];
+    
 }
 
 @end
