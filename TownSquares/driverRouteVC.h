@@ -11,10 +11,22 @@
 
 @interface driverRouteVC : UIViewController
 
+// Data
 @property int minTime;
 @property int maxTime;
 
 // Driver
 @property driverObject *myDriver;
+
+// Text Labels
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *paymentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *milesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *stopsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *packagesLabel;
+
+// Buttons
+- (IBAction)acceptButtonPressed:(UIButton *)sender;
+- (IBAction)declineButtonPressed:(UIButton *)sender;
 
 @end

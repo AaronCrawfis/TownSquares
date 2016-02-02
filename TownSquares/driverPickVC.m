@@ -26,7 +26,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"passDriverToEM"]){
+    if([segue.identifier isEqualToString:@"findRouteSegue"]){
         driverRouteVC *controller = (driverRouteVC *)segue.destinationViewController;
         controller.minTime = self.minTime;
         controller.maxTime = self.maxTime;
