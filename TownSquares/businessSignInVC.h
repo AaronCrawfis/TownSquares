@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverObject.h"
 
 @interface businessSignInVC : UIViewController
+
+// Driver
+@property driverObject *myDriver;
 
 @end

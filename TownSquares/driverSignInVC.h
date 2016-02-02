@@ -29,4 +29,7 @@
 - (IBAction)cancelButtonPressed:(UIButton *)sender;
 - (IBAction)nextButtonPressed:(UIButton *)sender;
 
+// Driver
+@property driverObject *myDriver;
+
 @end

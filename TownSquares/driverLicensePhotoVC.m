@@ -15,7 +15,8 @@
 
 @implementation driverLicensePhotoVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -33,9 +34,58 @@
     }
 }
 
+#pragma mark - Pictures
+
+-(IBAction)takePhoto :(id)sender
+
+{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    
+    // image picker needs a delegate,
+    [imagePickerController setDelegate:self];
+    
+    // Place image picker on the screen
+    [self presentModalViewController:imagePickerController animated:YES];
+}
+
+
+
+-(IBAction)chooseFromLibrary:(id)sender
+{
+    
+    UIImagePickerController *imagePickerController= [[UIImagePickerController alloc] init];
+    [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+    // image picker needs a delegate so we can respond to its messages
+    [imagePickerController setDelegate:self];
+    
+    // Place image picker on the screen
+    [self presentModalViewController:imagePickerController animated:YES];
+    
+}
+
+//delegate methode will be called after picking photo either from camera or library
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissModalViewControllerAnimated:YES];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    self.imageView.image = image;
+    
+    self.createdDriver.IDPicture = UIImagePNGRepresentation(image);
+}
+
+
+#pragma mark - Buttons
+
 - (IBAction)takePictureButtonPressed:(UIButton *)sender
 {
-    // Open Camera
+    [self takePhoto:self];
 }
 
 - (IBAction)nextButtonPressed:(UIButton *)sender

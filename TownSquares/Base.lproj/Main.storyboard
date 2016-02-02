@@ -759,13 +759,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhz-Is-9Bm">
-                                <rect key="frame" x="129" y="404" width="117" height="70"/>
+                                <rect key="frame" x="129" y="405" width="117" height="70"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OAO-OP-9ZX" kind="presentation" id="Ql5-d4-nZh"/>
+                                    <action selector="signUpButtonPressed:" destination="SAA-7v-c9e" eventType="touchUpInside" id="7xD-Fc-lWy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -776,6 +776,7 @@
                         <outlet property="passwordTextField" destination="P0t-XF-sbv" id="cEF-aV-kp6"/>
                         <outlet property="userNameTextField" destination="GxG-eZ-vAv" id="bmV-iJ-j27"/>
                         <segue destination="wrc-Zz-0XJ" kind="show" identifier="goToHome" id="BPt-r9-ivc"/>
+                        <segue destination="OAO-OP-9ZX" kind="show" identifier="signupSegue" id="ipL-pd-7xL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66w-g5-8mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1504,6 +1505,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="7DM-Da-ggJ" id="lZi-jh-zOW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuQ-Fz-w4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

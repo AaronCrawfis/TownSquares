@@ -18,9 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Create new driver
-    self.createdDriver = [[driverObject alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -20,4 +20,6 @@
 - (IBAction)nextButtonPressed:(UIButton *)sender;
 - (IBAction)backButtonPressed:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 @end

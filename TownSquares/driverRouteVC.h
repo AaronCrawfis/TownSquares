@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "driverObject.h"
 
 @interface driverRouteVC : UIViewController
 
 @property int minTime;
 @property int maxTime;
+
+// Driver
+@property driverObject *myDriver;
 
 @end

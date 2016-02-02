@@ -18,6 +18,7 @@
 // Button
 - (IBAction)signInButtonPressed:(UIButton *)sender;
 - (IBAction)backButtonPressed:(UIButton *)sender;
+- (IBAction)signUpButtonPressed:(UIButton *)sender;
 
 // Text Fields
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;

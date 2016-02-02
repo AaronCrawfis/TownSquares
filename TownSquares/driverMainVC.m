@@ -7,6 +7,7 @@
 //
 
 #import "driverMainVC.h"
+#import "driverSignInVC.h"
 
 @interface driverMainVC ()
 
@@ -30,16 +31,27 @@
         driverHomeVC *controller = (driverHomeVC *)segue.destinationViewController;
         controller.myDriver = self.myDriver;
     }
+    else if([segue.identifier isEqualToString:@"signupSegue"]){
+        driverSignInVC *controller = (driverSignInVC *)segue.destinationViewController;
+        controller.createdDriver = self.myDriver;
+    }
 }
 
 - (IBAction)signInButtonPressed:(UIButton *)sender
 {
     self.myDriver = [[driverObject alloc] init];
+    // Fill New Driver
     [self performSegueWithIdentifier:@"goToHome" sender:self];
 }
 
 - (IBAction)backButtonPressed:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)signUpButtonPressed:(UIButton *)sender
+{
+    self.myDriver = [[driverObject alloc] init];
+    [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
 @end
