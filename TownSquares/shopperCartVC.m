@@ -52,8 +52,8 @@
     NSString *price = [costs objectAtIndex:indexPath.row];
     
     cell.textLabel.text = name;
-    cell.detailTextLabel.text = [price substringToIndex:4];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%@",[price substringToIndex:4]];
+    cell.detailTextLabel.text = [price substringToIndex:5];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%@",[price substringToIndex:5]];
     
     self.totalCost += [price floatValue];
     

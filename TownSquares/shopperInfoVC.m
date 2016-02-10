@@ -37,11 +37,13 @@
     self.createdShopper.phone = self.phoneTextField.text;
     self.createdShopper.email = self.emailTextField.text;
     
+    [self performSegueWithIdentifier:@"goToCart" sender:self];
+    
 }
 
 - (IBAction)signInButtonPressed:(UIButton *)sender
 {
-    
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

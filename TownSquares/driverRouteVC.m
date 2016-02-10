@@ -31,6 +31,10 @@
             {
                 [self showAlert];
             }
+            else
+            {
+                self.mapImage.hidden = false;
+            }
             
             // Do something with the found objects
             PFObject *object = objects[0];
@@ -95,6 +99,7 @@
 - (IBAction)acceptButtonPressed:(UIButton *)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://maps.apple.com/?saddr=Cambodian+Thai+South+Bend&daddr=Fiddlers+Hearth"]];
+    [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)declineButtonPressed:(UIButton *)sender

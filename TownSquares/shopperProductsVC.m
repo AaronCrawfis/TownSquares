@@ -158,6 +158,7 @@
         self.myProduct.name = cellProduct[@"productName"];
         self.myProduct.price = [cellProduct[@"productPrice"] floatValue];
         self.myProduct.briefDescription = cellProduct[@"productDes"];
+        self.myProduct.business = cellProduct[@"productBusiness"];
         
         PFFile *cellPictureFile = cellProduct[@"productPicture"];
         [cellPictureFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {

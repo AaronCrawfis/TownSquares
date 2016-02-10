@@ -14,6 +14,7 @@
 // Data
 @property int minTime;
 @property int maxTime;
+@property (strong, nonatomic) IBOutlet UIImageView *mapImage;
 
 // Driver
 @property driverObject *myDriver;
