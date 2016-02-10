@@ -25,6 +25,7 @@
 - (IBAction)time60ButtonPressed:(UIButton *)sender;
 - (IBAction)time90ButtonPressed:(UIButton *)sender;
 - (IBAction)time2ButtonPressed:(UIButton *)sender;
+- (IBAction)backButtonPressed:(UIButton *)sender;
 
 
 @end

@@ -94,7 +94,7 @@
 
 - (IBAction)acceptButtonPressed:(UIButton *)sender
 {
-    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://maps.apple.com/?saddr=Cambodian+Thai+South+Bend&daddr=Fiddlers+Hearth"]];
 }
 
 - (IBAction)declineButtonPressed:(UIButton *)sender

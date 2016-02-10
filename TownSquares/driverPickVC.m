@@ -68,4 +68,9 @@
     [self performSegueWithIdentifier:@"findRouteSegue" sender:self];
 }
 
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
