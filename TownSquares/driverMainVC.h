@@ -10,7 +10,7 @@
 #import "driverObject.h"
 #import "driverHomeVC.h"
 
-@interface driverMainVC : UIViewController
+@interface driverMainVC : UIViewController <UITextFieldDelegate>
 
 // Driver Object
 @property driverObject *myDriver;

@@ -44,8 +44,8 @@
             self.timeLabel.text = formattedTime;
             self.paymentLabel.text = [NSString stringWithFormat:@"$%@",object[@"productPrice"]];
             self.milesLabel.text = object[@"miles"];
-            self.packagesLabel.text = [NSString stringWithFormat:@"1"];
-            self.stopsLabel.text = [NSString stringWithFormat:@"1"];
+            self.packagesLabel.text = [NSString stringWithFormat:@"6"];
+            self.stopsLabel.text = [NSString stringWithFormat:@"4"];
             
         } else {
             // Log details of the failure

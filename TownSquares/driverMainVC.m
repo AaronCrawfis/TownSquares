@@ -37,6 +37,13 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    // done button was pressed - dismiss keyboard
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)signInButtonPressed:(UIButton *)sender
 {
     self.myDriver = [[driverObject alloc] init];
